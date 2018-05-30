@@ -11,8 +11,8 @@ import java.util.List;
 public class Datenstruktur <T> 
 {
 
-    List<T> listAnything = new LinkedList<>();
-    
+    List<Object> listAnything = new LinkedList<>();
+
     //Initialisierung der Main-Methode
     public static void main(String[] args) {
         new Datenstruktur().start();
@@ -180,14 +180,11 @@ public class Datenstruktur <T>
      */
     public void start() {
 
-        LinkedList<T> list = new LinkedList<>();
-        list.add(new LinkedList<String>(Object));
-        list.insert(new LinkedList<String>("Pandit"));
-        list.insert(new LinkedList<String>("Tanvi"));
-        list.insert(new LinkedList<String>("Monika"));
-        list.print();
-        list.remove();
-        System.out.println("After removing the head..");
-        list.print();
+        LinkedList<Object> listAnything = new LinkedList<>();
+        listAnything.addFirst(new Object());
+        listAnything.add(new Object());
+        listAnything.add(new Object());
+        listAnything.add(new Object());
+        listAnything.addLast(new Object());
     }
 }
