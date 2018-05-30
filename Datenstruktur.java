@@ -127,6 +127,45 @@ public class Datenstruktur <T>
         public boolean containsAll(Collection c) {
             return false;
         }
-
     }
+
+    // Wert des Knotens
+    private int value;
+
+    // Vorheriger Knoten
+    private Datenstruktur prev;
+
+    // Nächster Knoten
+    private Datenstruktur next;
+
+    // Kopf der Liste
+    private Datenstruktur head;
+
+    // Schwanz der Liste
+    private Datenstruktur tail;
+
+    public void setValue(int v) {
+        value = v;
+    }
+
+    public void setPrev(Datenstruktur p) {
+        prev = p;
+    }
+
+    public void setNext(Datenstruktur n) {
+        next = n;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public Datenstruktur getPrev() {
+        return prev;
+    }
+
+    public Datenstruktur getNext() {
+        return next;
+    }
+
 }
