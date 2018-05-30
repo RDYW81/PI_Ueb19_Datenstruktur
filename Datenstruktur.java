@@ -7,11 +7,18 @@ import java.util.List;
  * @author Roland Daidone
  * @version (eine Versionsnummer oder ein Datum)
  */
+
 public class Datenstruktur <T> 
 {
 
     List<T> listAnything = new LinkedList<>();
+    
+    //Initialisierung der Main-Methode
+    public static void main(String[] args) {
+        new Datenstruktur().start();
+    }
 
+    //Aufgabe 1a
     private class DoppelteListe implements List {
 
         @Override
@@ -168,4 +175,19 @@ public class Datenstruktur <T>
         return next;
     }
 
+    /**
+     * Main-Methode mit verschiedenen Test-Szenarien je nach Aufgabenstellung
+     */
+    public void start() {
+
+        LinkedList<T> list = new LinkedList<>();
+        list.add(new LinkedList<String>(Object));
+        list.insert(new LinkedList<String>("Pandit"));
+        list.insert(new LinkedList<String>("Tanvi"));
+        list.insert(new LinkedList<String>("Monika"));
+        list.print();
+        list.remove();
+        System.out.println("After removing the head..");
+        list.print();
+    }
 }
