@@ -176,7 +176,7 @@ public class Datenstruktur <T>
     }
 
     /**
-     * Main-Methode mit verschiedenen Test-Szenarien je nach Aufgabenstellung
+     * Main-Methode mit verschiedenen Test-Szenarien je nach Aufgabenstellung.
      */
     public void start() {
 
