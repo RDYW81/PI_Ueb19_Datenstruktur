@@ -10,8 +10,6 @@ import java.util.List;
 
 public class Datenstruktur <T> 
 {
-    // Doppelt verkettete Liste LinkedList wird erzeugt
-    List<Object> listAnything = new LinkedList<>();
 
     // Wert des Knotens
     private T value;
