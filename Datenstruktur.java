@@ -1,7 +1,6 @@
 import java.util.*;
 import java.util.List;
 
-
 /**
  * Beschreiben Sie hier die Klasse Datenstruktur.
  * 
@@ -11,6 +10,9 @@ import java.util.List;
 
 public class Datenstruktur <T> 
 {
+    // Doppelt verkettete Liste LinkedList wird erzeugt
+    List<Object> listAnything = new LinkedList<>();
+
     // Wert des Knotens
     private T value;
 
@@ -248,6 +250,10 @@ public class Datenstruktur <T>
 //Aufgabe 1a
 class node implements List {
 
+    // Fehlermeldung
+    private static final String MSG_NICHT_UNTERSTUEZT =
+            "Methode wird nicht unterstützt";
+
     @Override
     public int size() {
         return 0;
@@ -265,12 +271,12 @@ class node implements List {
 
     @Override
     public Iterator iterator() {
-        throw java.lang.UnsupportedOperationException;
+        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
     @Override
@@ -294,7 +300,7 @@ class node implements List {
 
     @Override
     public boolean addAll(int index, Collection c) {
-        return false;
+        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
     @Override
@@ -329,12 +335,12 @@ class node implements List {
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
     @Override
     public ListIterator listIterator() {
-        return null;
+        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
     @Override
@@ -344,21 +350,21 @@ class node implements List {
 
     @Override
     public List subList(int fromIndex, int toIndex) {
-        return null;
+        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
     @Override
     public boolean retainAll(Collection c) {
-        return false;
+        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
     @Override
     public boolean removeAll(Collection c) {
-        return false;
+        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
     @Override
     public boolean containsAll(Collection c) {
-        return false;
+        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 }
