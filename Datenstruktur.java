@@ -1,22 +1,16 @@
-import java.util.List;
 import java.util.*;
+import java.util.List;
+
 
 /**
  * Beschreiben Sie hier die Klasse Datenstruktur.
  * 
- * @author Roland Daidone
- * @version (eine Versionsnummer oder ein Datum)
+ * @author Roland Daidone, Michael Linn
+ * @version 1.0
  */
 
 public class Datenstruktur <T> 
 {
-    // Doppelt verkettete Liste LinkedList wird erzeugt
-    List<Object> listAnything = new LinkedList<>();
-    
-    // Fehlermeldung
-    private static final String MSG =
-        "Methode wird nicht unterstützt";
-
     // Wert des Knotens
     private T value;
 
@@ -271,7 +265,7 @@ class node implements List {
 
     @Override
     public Iterator iterator() {
-        throw new UnsupportedOperationException(MSG);
+        throw java.lang.UnsupportedOperationException;
     }
 
     @Override
