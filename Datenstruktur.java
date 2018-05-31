@@ -12,6 +12,10 @@ public class Datenstruktur <T>
 {
     // Doppelt verkettete Liste LinkedList wird erzeugt
     List<Object> listAnything = new LinkedList<>();
+    
+    // Fehlermeldung
+    private static final String MSG =
+        "Methode wird nicht unterstützt";
 
     // Wert des Knotens
     private T value;
@@ -185,7 +189,7 @@ public class Datenstruktur <T>
     /**
      * Sucht in einfach verketter Liste.
      *
-     * @param k Zu suchendes Objekt
+     * @param T Zu suchendes Objekt
      * @return Ist das Objekt in der Liste enthalten?
      */
     public boolean search(Object T) {
@@ -267,7 +271,7 @@ class node implements List {
 
     @Override
     public Iterator iterator() {
-        return null;
+        throw new UnsupportedOperationException(MSG);
     }
 
     @Override
