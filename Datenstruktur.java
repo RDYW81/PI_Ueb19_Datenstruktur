@@ -10,9 +10,6 @@ import java.util.List;
 
 public class Datenstruktur <T> 
 {
-
-    public static void main(String[] args) {
-    }
     
     // Wert des Knotens
     private T value;
@@ -272,12 +269,12 @@ class node implements List {
 
     @Override
     public Iterator iterator() {
-        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
+        throw new java.lang.UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
     @Override
     public Object[] toArray() {
-        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
+        throw new java.lang.UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
     @Override
@@ -301,7 +298,7 @@ class node implements List {
 
     @Override
     public boolean addAll(int index, Collection c) {
-        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
+        throw new java.lang.UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
     @Override
@@ -336,12 +333,12 @@ class node implements List {
 
     @Override
     public int lastIndexOf(Object o) {
-        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
+        throw new java.lang.UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
     @Override
     public ListIterator listIterator() {
-        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
+        throw new java.lang.UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
     @Override
@@ -351,22 +348,22 @@ class node implements List {
 
     @Override
     public List subList(int fromIndex, int toIndex) {
-        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
+        throw new java.lang.UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
     @Override
     public boolean retainAll(Collection c) {
-        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
+        throw new java.lang.UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
     @Override
     public boolean removeAll(Collection c) {
-        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
+        throw new java.lang.UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
     @Override
     public boolean containsAll(Collection c) {
-        throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
+        throw new java.lang.UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
     
     public static void main(String[] args) {
