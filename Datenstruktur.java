@@ -11,6 +11,9 @@ import java.util.List;
 public class Datenstruktur <T> 
 {
 
+    public static void main(String[] args) {
+    }
+    
     // Wert des Knotens
     private T value;
 
@@ -364,5 +367,15 @@ class node implements List {
     @Override
     public boolean containsAll(Collection c) {
         throw new UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
+    }
+    
+    public static void main(String[] args) {
+       List<Object> node = new LinkedList<>();
+       node.add("Item1");
+       node.add("Item5");
+       node.add("Item3");
+       node.add("Item6");
+       node.add("Item2");
+       System.out.println("Inhalt: " +node);
     }
 }
