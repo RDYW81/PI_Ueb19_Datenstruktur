@@ -230,7 +230,6 @@ public class Datenstruktur <T> implements List
     // return sb.toString();
     // }
 
-    
     //Aufgabe 1a
     /**
      * Bestimme Anzahl der in der Liste enthaltenen Objekte.
@@ -248,14 +247,36 @@ public class Datenstruktur <T> implements List
         return size;
     }
 
+    /**
+     * Prüfung, ob die Liste leer ist
+     * 
+     * @return True bei leerer Liste
+     * @return False bei gefüllter Liste
+     */
     @Override
     public boolean isEmpty() {
-        return false;
+        return head == null;
     }
 
+    /**
+     * Sucht in einfach verketter Liste.
+     *
+     * @param T Zu suchendes Objekt
+     * @return Ist das Objekt in der Liste enthalten?
+     */
     @Override
-    public boolean contains(Object o) {
-        return false;
+    public boolean contains(Object T) {
+        boolean found = false;
+        if (head != null) {
+            Datenstruktur cur = head;
+            while (cur != null && cur.getValue() != T) {
+                cur = cur.getNext();
+            }
+            if (cur != null) {
+                found = true;
+            }
+        }
+        return found;
     }
 
     @Override
@@ -294,7 +315,6 @@ public class Datenstruktur <T> implements List
 
     @Override
     public void clear() {
-
     }
 
     @Override
@@ -309,7 +329,17 @@ public class Datenstruktur <T> implements List
 
     @Override
     public void add(int index, Object element) {
-
+        Datenstruktur node = new Datenstruktur();
+        node.setValue(element);
+        // Ist die Liste noch leer?
+        if (head == null) {
+            head = node;
+            tail = node;
+        } else {
+            node.setNext(head);
+            head.setPrev(node);
+            head = node;
+        }
     }
 
     @Override
@@ -364,7 +394,9 @@ public class Datenstruktur <T> implements List
         node.add('A');
         node.add("Item");
         node.size();
+        node.isEmpty();
         System.out.println("Inhalt: " +node);
         System.out.println("Größe: " +node.size());
+        System.out.println("Leer? " +node.isEmpty());
     }
 }
