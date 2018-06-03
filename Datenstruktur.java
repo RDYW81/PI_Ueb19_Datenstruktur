@@ -290,8 +290,14 @@ public class Datenstruktur <T> implements List
     }
 
     @Override
-    public Object[] toArray(Object[] a) {
-        return new Object[0];
+    public Object[] toArray(Object[] object) {
+        ArrayList<Object> array = new ArrayList<Object>();
+        for(Object obj : object){
+            array.add(obj);
+        }
+        return array;
+
+        //return new Object[0];
     }
 
     public boolean add(Object o) {
