@@ -149,39 +149,7 @@ public class Datenstruktur <T> implements List
     // return T;
     // }
 
-    /**
-    * Löscht ein Vorkommen eines Objekt T in der Liste.
-    *
-    * @param T Zu löschendes Objekt
-    * @return ob ein Objekt gelöscht wurde
-    */
-    public boolean delete(Object T) {
-    boolean found = false;
-    if (head != null) {
-    Datenstruktur cur = head;
-    while (cur != null && cur.getValue() != T) {
-    cur = cur.getNext();
-    }
-    if (cur != null) {
-    found = true;
-    Datenstruktur prev = cur.getPrev();
-    Datenstruktur next = cur.getNext();
-    if (prev != null) {
-    prev.setNext(next);
-    } else {
-    head = next;
-    }
-    if (next != null) {
-    next.setPrev(prev);
-    } else {
-    tail = prev;
-    }
-    cur.setPrev(null);
-    cur.setNext(null);
-    }
-    }
-    return found;
-    }
+    
 
     // /**
     // * Sucht in einfach verketter Liste.
@@ -351,6 +319,10 @@ public class Datenstruktur <T> implements List
 
     @Override
     public void clear() {
+        Datenstruktur node = new Datenstruktur();
+        while (!node.isEmpty()) {
+            node.remove(0);
+        }
     }
 
     @Override
@@ -384,8 +356,19 @@ public class Datenstruktur <T> implements List
     }
 
     @Override
-    public int indexOf(Object o) {
-        return 0;
+    public int indexOf(Object T) {
+        int index = 0;
+        Datenstruktur cur = head;
+
+        while (cur!= null) {
+            if (cur.equals(T)) {
+                return index;
+            }
+            index++;
+            cur = cur.next;
+        }
+
+        return -1;
     }
 
     @Override
@@ -438,5 +421,8 @@ public class Datenstruktur <T> implements List
         System.out.println("Anwendung von Remove an Index 0:");
         System.out.println("Inhalt:              " +node);
         System.out.println("Größe:               " +node.size());
+        System.out.println("Clear auf alle Inhalte:");
+        node.clear();   // Funktioniert hier, jedoch nicht im JUnit. Warum?
+        System.out.println("Inhalt:              " +node); 
     }
 }

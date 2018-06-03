@@ -13,7 +13,7 @@ import org.junit.Test;
 public class DatenstrukturTest
 {
     @Test
-    public void TestFuegeObjekteAmHeadHinzu()
+    public void TestFuegeObjekteAlsHeadOderTailHinzu()
     {
         Datenstruktur<Object> datenstr1 = new Datenstruktur<Object>();
         datenstr1.add(100);
@@ -89,7 +89,7 @@ public class DatenstrukturTest
         datenstr1.add(1, "Auto");
         assertEquals(true, datenstr1.remove("Auto"));
     }
-    
+
     @Test
     public void TestAnwendungRemoveNichtVorhandenesObjektEntsprichtNull()
     {
@@ -97,6 +97,18 @@ public class DatenstrukturTest
         datenstr1.add(0, 100);
         datenstr1.add(1, "Auto");
         assertEquals(null, datenstr1.remove('a'));
+    }
+
+    @Test
+    public void TestClear()
+    {
+        Datenstruktur<Object> datenstr1 = new Datenstruktur<Object>();
+        datenstr1.add(100);
+        datenstr1.add("IchBinEinString");
+        datenstr1.add('a');
+        datenstr1.add(50.5);
+        datenstr1.clear();
+        assertEquals(true, datenstr1.isEmpty());
     }
 }
 
