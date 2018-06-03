@@ -149,39 +149,39 @@ public class Datenstruktur <T> implements List
     // return T;
     // }
 
-    // /**
-    // * Löscht ein Vorkommen eines Objekt T in der Liste.
-    // *
-    // * @param T Zu löschendes Objekt
-    // * @return ob ein Objekt gelöscht wurde
-    // */
-    // public boolean delete(Object T) {
-    // boolean found = false;
-    // if (head != null) {
-    // Datenstruktur cur = head;
-    // while (cur != null && cur.getValue() != T) {
-    // cur = cur.getNext();
-    // }
-    // if (cur != null) {
-    // found = true;
-    // Datenstruktur prev = cur.getPrev();
-    // Datenstruktur next = cur.getNext();
-    // if (prev != null) {
-    // prev.setNext(next);
-    // } else {
-    // head = next;
-    // }
-    // if (next != null) {
-    // next.setPrev(prev);
-    // } else {
-    // tail = prev;
-    // }
-    // cur.setPrev(null);
-    // cur.setNext(null);
-    // }
-    // }
-    // return found;
-    // }
+    /**
+    * Löscht ein Vorkommen eines Objekt T in der Liste.
+    *
+    * @param T Zu löschendes Objekt
+    * @return ob ein Objekt gelöscht wurde
+    */
+    public boolean delete(Object T) {
+    boolean found = false;
+    if (head != null) {
+    Datenstruktur cur = head;
+    while (cur != null && cur.getValue() != T) {
+    cur = cur.getNext();
+    }
+    if (cur != null) {
+    found = true;
+    Datenstruktur prev = cur.getPrev();
+    Datenstruktur next = cur.getNext();
+    if (prev != null) {
+    prev.setNext(next);
+    } else {
+    head = next;
+    }
+    if (next != null) {
+    next.setPrev(prev);
+    } else {
+    tail = prev;
+    }
+    cur.setPrev(null);
+    cur.setNext(null);
+    }
+    }
+    return found;
+    }
 
     // /**
     // * Sucht in einfach verketter Liste.
@@ -294,25 +294,49 @@ public class Datenstruktur <T> implements List
         return null;
     }
 
+    @Override
     public boolean add(Object T) {
+        Datenstruktur node = new Datenstruktur();
+        node.setValue(T);
+        // Ist die Liste noch leer?
+        if (head == null) {
+            head = node;
+            tail = node;
+        } else {
+            node.setNext(head);
+            head.setPrev(node);
+            head = node;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean remove(Object T) {
+        boolean found = false;
         if (head != null) {
             Datenstruktur cur = head;
             while (cur != null && cur.getValue() != T) {
                 cur = cur.getNext();
             }
-            if (cur == null) {
-                cur = T;
-                
-                return true;
+            if (cur != null) {
+                found = true;
+                Datenstruktur prev = cur.getPrev();
+                Datenstruktur next = cur.getNext();
+                if (prev != null) {
+                    prev.setNext(next);
+                } else {
+                    head = next;
+                }
+                if (next != null) {
+                    next.setPrev(prev);
+                } else {
+                    tail = prev;
+                }
+                cur.setPrev(null);
+                cur.setNext(null);
             }
         }
-        return false;
-    }
-    
-
-    @Override
-    public boolean remove(Object T) {
-        return false;
+        return found;
     }
 
     @Override
@@ -340,9 +364,9 @@ public class Datenstruktur <T> implements List
     }
 
     @Override
-    public void add(int index, Object element) {
+    public void add(int index, Object T) {
         Datenstruktur node = new Datenstruktur();
-        node.setValue(element);
+        node.setValue(T);
         // Ist die Liste noch leer?
         if (head == null) {
             head = node;
@@ -401,7 +425,7 @@ public class Datenstruktur <T> implements List
 
     public static void main(String[] args) {
         List<Object> node = new LinkedList<>();
-        node.add(1);
+        node.add(100);
         node.add(1.25);
         node.add('A');
         node.add("Item");
@@ -410,5 +434,9 @@ public class Datenstruktur <T> implements List
         System.out.println("Inhalt:              " +node);
         System.out.println("Größe:               " +node.size());
         System.out.println("Leer? false/true:    " +node.isEmpty());
+        node.remove(0);
+        System.out.println("Anwendung von Remove an Index 0:");
+        System.out.println("Inhalt:              " +node);
+        System.out.println("Größe:               " +node.size());
     }
 }

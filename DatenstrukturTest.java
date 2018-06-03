@@ -49,10 +49,18 @@ public class DatenstrukturTest
     }
 
     @Test
-    public void TesteSizeLeer()
+    public void TesteGroesseNull()
     {
         Datenstruktur<Object> datenstr1 = new Datenstruktur<Object>();
         assertEquals(0, datenstr1.size());
+    }
+
+    @Test
+    public void TesteGroesseEins()
+    {
+        Datenstruktur<Object> datenstr1 = new Datenstruktur<Object>();
+        datenstr1.add(100);
+        assertEquals(1, datenstr1.size());
     }
 
     @Test
@@ -61,7 +69,7 @@ public class DatenstrukturTest
         Datenstruktur<Object> datenstr1 = new Datenstruktur<Object>();
         assertEquals(true, datenstr1.isEmpty());
     }
-    
+
     @Test
     public void TestListeIstNichtLeer()
     {
@@ -70,7 +78,27 @@ public class DatenstrukturTest
         datenstr1.add("IchBinEinString");
         datenstr1.add('a');
         datenstr1.add(50.5);
-        assertEquals(true, datenstr1.isEmpty());
+        assertEquals(false, datenstr1.isEmpty());
+    }
+
+    @Test
+    public void TestAnwendungRemove()
+    {
+        Datenstruktur<Object> datenstr1 = new Datenstruktur<Object>();
+        datenstr1.add(0, 100);
+        datenstr1.add(1, "Auto");
+        assertEquals(true, datenstr1.remove("Auto"));
+    }
+    
+    @Test
+    public void TestAnwendungRemoveNichtVorhandenesObjektEntsprichtNull()
+    {
+        Datenstruktur<Object> datenstr1 = new Datenstruktur<Object>();
+        datenstr1.add(0, 100);
+        datenstr1.add(1, "Auto");
+        assertEquals(null, datenstr1.remove('a'));
     }
 }
+
+
 
