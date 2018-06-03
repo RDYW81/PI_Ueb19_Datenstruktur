@@ -290,12 +290,12 @@ public class Datenstruktur <T> implements List
     }
 
     @Override
-    public Object[] toArray(Object[] object) {
-        ArrayList<Object> array = new ArrayList<Object>();
-        for(Object obj : object){
+    public Object[] toArray(Object[] T) {
+        ArrayList<Object> array = new ArrayList<>();
+        for(Object obj : T){
             array.add(obj);
         }
-        return array;
+        return new ArrayList[]{array};
 
         //return new Object[0];
     }
@@ -401,8 +401,8 @@ public class Datenstruktur <T> implements List
         node.add("Item");
         node.size();
         node.isEmpty();
-        System.out.println("Inhalt: " +node);
-        System.out.println("Größe: " +node.size());
-        System.out.println("Leer? " +node.isEmpty());
+        System.out.println("Inhalt:              " +node);
+        System.out.println("Größe:               " +node.size());
+        System.out.println("Leer? false/true:    " +node.isEmpty());
     }
 }

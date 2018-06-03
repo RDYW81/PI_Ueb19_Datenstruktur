@@ -16,41 +16,35 @@ public class DatenstrukturTest
     public void TestFuegeObjekteAmHeadHinzu()
     {
         Datenstruktur<Object> datenstr1 = new Datenstruktur<Object>();
-        datenstr1.insertFirst(100);
+        datenstr1.add(100);
     }
 
     @Test
     public void TestFuegeObjekteHinzu()
     {
         Datenstruktur<Object> datenstr1 = new Datenstruktur<Object>();
-        datenstr1.insert(100);
-    }
-
-    @Test
-    public void TestFuegeObjekteAmTailHinzu()
-    {
-        Datenstruktur<Object> datenstr1 = new Datenstruktur<Object>();
-        datenstr1.insertLast(100);
+        datenstr1.add(100);
+        datenstr1.add(101);
     }
 
     @Test
     public void TestErstelleEineListeMitVerschiedenenObjekten()
     {
         Datenstruktur<Object> datenstr1 = new Datenstruktur<Object>();
-        datenstr1.insert(100);
-        datenstr1.insert("IchBinEinString");
-        datenstr1.insert('a');
-        datenstr1.insert(50.5);
+        datenstr1.add(100);
+        datenstr1.add("IchBinEinString");
+        datenstr1.add('a');
+        datenstr1.add(50.5);
     }
 
     @Test
     public void TesteSizeMitVierVerschiedenenObjekten()
     {
         Datenstruktur<Object> datenstr1 = new Datenstruktur<Object>();
-        datenstr1.insert(100);
-        datenstr1.insert("IchBinEinString");
-        datenstr1.insert('a');
-        datenstr1.insert(50.5);
+        datenstr1.add(100);
+        datenstr1.add("IchBinEinString");
+        datenstr1.add('a');
+        datenstr1.add(50.5);
         assertEquals(4, datenstr1.size());
     }
 
@@ -68,15 +62,15 @@ public class DatenstrukturTest
         assertEquals(true, datenstr1.isEmpty());
     }
     
-        @Test
+    @Test
     public void TestListeIstNichtLeer()
     {
         Datenstruktur<Object> datenstr1 = new Datenstruktur<Object>();
-        datenstr1.insert(100);
-        datenstr1.insert("IchBinEinString");
-        datenstr1.insert('a');
-        datenstr1.insert(50.5);
-        assertEquals(false, datenstr1.isEmpty());
+        datenstr1.add(100);
+        datenstr1.add("IchBinEinString");
+        datenstr1.add('a');
+        datenstr1.add(50.5);
+        assertEquals(true, datenstr1.isEmpty());
     }
 }
 
