@@ -149,7 +149,6 @@ public class Datenstruktur <T> implements List
     // return T;
     // }
 
-    
 
     // /**
     // * Sucht in einfach verketter Liste.
@@ -171,33 +170,10 @@ public class Datenstruktur <T> implements List
     // return found;
     // }
 
-    // /**
-    // * Stellt fest, ob die Liste leer ist.
-    // *
-    // * @return Ist die Liste leer?
-    // */
-    // public boolean isEmpty() {
-    // return head == null;
-    // }
-    // * Wiedergabe der Liste als Zeichenkette.
-    // *
-    // * @return Liste als Zeichenkette
-    // */
-    // public String toString() {
-    // StringBuilder sb = new StringBuilder();
-    // sb.append("(");
-    // Datenstruktur cur = head;
-    // while (cur != null) {
-    // sb.append(cur.getValue());
-    // if (cur.getNext() != null) {
-    // sb.append(" <-> ");
-    // }
-    // cur = cur.getNext();
-    // }
-    // sb.append(")");
-    // return sb.toString();
     // }
 
+
+    
     //Aufgabe 1a
     /**
      * Bestimme Anzahl der in der Liste enthaltenen Objekte.
@@ -262,6 +238,12 @@ public class Datenstruktur <T> implements List
         return null;
     }
 
+    /**
+     * Fügt ein Objekt T in die Liste ein und gibt true als Bestätigung zurück.
+     *
+     * @param T Einzufügendes Objekt
+     * @return true Objekt eingefügt
+     */
     @Override
     public boolean add(Object T) {
         Datenstruktur node = new Datenstruktur();
@@ -278,6 +260,14 @@ public class Datenstruktur <T> implements List
         return true;
     }
 
+    /**
+     * Entfernt ein Objekt T aus der Liste und gibt true als Bestätigung zurück.
+     *
+     * @param T Entferndendes Objekt
+     * 
+     * @return true Objekt gefunden und entfernt
+     * @return false Objekt nicht gefunden
+     */
     @Override
     public boolean remove(Object T) {
         boolean found = false;
@@ -317,6 +307,9 @@ public class Datenstruktur <T> implements List
         throw new java.lang.UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
+    /**
+     * Entfernt alle Objekte aus der Liste.
+     */
     @Override
     public void clear() {
         Datenstruktur node = new Datenstruktur();
@@ -382,7 +375,7 @@ public class Datenstruktur <T> implements List
     }
 
     @Override
-    public ListIterator listIterator(int index) {
+    public ListIterator<T> listIterator(int index) {
         return null;
     }
 
@@ -406,6 +399,26 @@ public class Datenstruktur <T> implements List
         throw new java.lang.UnsupportedOperationException(MSG_NICHT_UNTERSTUEZT);
     }
 
+    /** 
+    * Wiedergabe der Liste als Zeichenkette.
+    *
+    * @return Liste als Zeichenkette
+    */
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("(");
+        Datenstruktur cur = head;
+        while (cur != null) {
+            sb.append(cur.getValue());
+            if (cur.getNext() != null) {
+                sb.append(" <-> ");
+            }
+            cur = cur.getNext();
+        }
+        sb.append(")");
+        return sb.toString();
+    }
+    
     public static void main(String[] args) {
         List<Object> node = new LinkedList<>();
         node.add(100);
