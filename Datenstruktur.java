@@ -291,21 +291,27 @@ public class Datenstruktur <T> implements List
 
     @Override
     public Object[] toArray(Object[] T) {
-        ArrayList<Object> array = new ArrayList<>();
-        for(Object obj : T){
-            array.add(obj);
-        }
-        return new ArrayList[]{array};
-
-        //return new Object[0];
+        return null;
     }
 
-    public boolean add(Object o) {
+    public boolean add(Object T) {
+        if (head != null) {
+            Datenstruktur cur = head;
+            while (cur != null && cur.getValue() != T) {
+                cur = cur.getNext();
+            }
+            if (cur == null) {
+                cur = T;
+                
+                return true;
+            }
+        }
         return false;
     }
+    
 
     @Override
-    public boolean remove(Object o) {
+    public boolean remove(Object T) {
         return false;
     }
 
