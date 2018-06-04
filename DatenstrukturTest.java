@@ -108,6 +108,7 @@ public class DatenstrukturTest
         datenstr1.add('a');
         datenstr1.add(50.5);
         datenstr1.clear();
+        System.out.println(datenstr1);
         assertEquals(true, datenstr1.isEmpty());
     }
 }

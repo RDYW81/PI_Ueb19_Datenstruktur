@@ -8,8 +8,11 @@ import java.util.List;
  * @version 1.0
  */
 
-public class Datenstruktur <T> implements List
+public class Datenstruktur <T> implements java.util.List<T>
 {
+
+    //Attribut
+    private int size;
 
     // Fehlermeldung
     private static final String MSG_NICHT_UNTERSTUEZT =
@@ -54,126 +57,6 @@ public class Datenstruktur <T> implements List
         return next;
     }
 
-    // /**
-    // * Fügt ein Objekt T am Anfang der Liste ein.
-    // *
-    // * @param T Einzufügender Wert
-    // */
-    // public void insertFirst(Object T) {
-    // // Neuen Knoten anlegen
-    // Datenstruktur node = new Datenstruktur();
-    // node.setValue(T);
-    // // Ist die Liste noch leer?
-    // if (head == null) {
-    // head = node;
-    // tail = node;
-    // } else {
-    // node.setNext(head);
-    // head.setPrev(node);
-    // head = node;
-    // }
-    // }
-
-    // /**
-    // * Fügt ein Objekt T am Ende der Liste ein.
-    // *
-    // * @param T Einzufügender Wert
-    // */
-    // public void insertLast(Object T) {
-    // // Neuen Knoten anlegen
-    // Datenstruktur node = new Datenstruktur();
-    // node.setValue(T);
-    // // Ist die Liste noch leer?
-    // if (head == null) {
-    // head = node;
-    // tail = node;
-    // } else {
-    // node.setPrev(tail);
-    // tail.setNext(node);
-    // tail = node;
-    // }
-    // }
-
-    // /**
-    // * Fügt ein Objekt T in die Liste ein.
-    // *
-    // * @param T Einzufügender Wert
-    // */
-    // public void insert(Object T) {
-    // insertFirst(T);
-    // }
-
-    // /**
-    // * Löscht das erste Objekt in der Liste.
-    // *
-    // * @return Gelöschtes Objekt
-    // */
-    // public Object deleteFirst() {
-    // Object T = 0;
-    // if (head != null) {
-    // T = head.getValue();
-    // // Besteht die Liste nur aus einem Wert?
-    // if (head == tail) {
-    // head = null;
-    // tail = null;
-    // } else {
-    // Datenstruktur newHead = head.getNext();
-    // head.setNext(null);
-    // newHead.setPrev(null);
-    // head = newHead;
-    // }
-    // }
-    // return T;
-    // }
-
-    // /**
-    // * Löscht das letzte Object in der Liste.
-    // *
-    // * @return Gelöschtes Objekt
-    // */
-    // public Object deleteLast() {
-    // Object T = 0;
-    // if (tail != null) {
-    // T = tail.getValue();
-    // // Besteht die Liste nur aus einem Wert?
-    // if (head == tail) {
-    // head = null;
-    // tail = null;
-    // } else {
-    // Datenstruktur newTail = tail.getPrev();
-    // tail.setPrev(null);
-    // newTail.setNext(null);
-    // tail = newTail;
-    // }
-    // }
-    // return T;
-    // }
-
-
-    // /**
-    // * Sucht in einfach verketter Liste.
-    // *
-    // * @param T Zu suchendes Objekt
-    // * @return Ist das Objekt in der Liste enthalten?
-    // */
-    // public boolean search(Object T) {
-    // boolean found = false;
-    // if (head != null) {
-    // Datenstruktur cur = head;
-    // while (cur != null && cur.getValue() != T) {
-    // cur = cur.getNext();
-    // }
-    // if (cur != null) {
-    // found = true;
-    // }
-    // }
-    // return found;
-    // }
-
-    // }
-
-
-    
     //Aufgabe 1a
     /**
      * Bestimme Anzahl der in der Liste enthaltenen Objekte.
@@ -312,15 +195,15 @@ public class Datenstruktur <T> implements List
      */
     @Override
     public void clear() {
-        Datenstruktur node = new Datenstruktur();
-        while (!node.isEmpty()) {
-            node.remove(0);
-        }
+        Datenstruktur list = new Datenstruktur();
+        head = null;
+        tail = null;
+        size = 0;
     }
 
     @Override
-    public Object get(int index) {
-        return null;
+    public T get(int index) {
+        return null;   
     }
 
     @Override
@@ -344,7 +227,7 @@ public class Datenstruktur <T> implements List
     }
 
     @Override
-    public Object remove(int index) {
+    public T remove(int index) {
         return null;
     }
 
@@ -354,7 +237,8 @@ public class Datenstruktur <T> implements List
         Datenstruktur cur = head;
 
         while (cur!= null) {
-            if (cur.equals(T)) {
+            if (cur.getValue().equals(T)) {
+                // if (cur.equals(T)) {
                 return index;
             }
             index++;
@@ -400,10 +284,10 @@ public class Datenstruktur <T> implements List
     }
 
     /** 
-    * Wiedergabe der Liste als Zeichenkette.
-    *
-    * @return Liste als Zeichenkette
-    */
+     * Wiedergabe der Liste als Zeichenkette.
+     *
+     * @return Liste als Zeichenkette
+     */
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("(");
@@ -418,7 +302,7 @@ public class Datenstruktur <T> implements List
         sb.append(")");
         return sb.toString();
     }
-    
+
     public static void main(String[] args) {
         List<Object> node = new LinkedList<>();
         node.add(100);
