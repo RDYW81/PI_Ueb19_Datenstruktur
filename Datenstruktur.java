@@ -180,9 +180,18 @@ public class Datenstruktur <T> implements java.util.List<T>
         return found;
     }
 
+    /**
+     * Erstellt eine neue Collection und füt dieser Objekte hinzu.
+     * 
+     * @return true wenn Collection mit Objekten in die doppelt verkettete Liste Datenstruktur
+     *         hinzugefügt wird
+     */
     @Override
     public boolean addAll(Collection c) {
-        return false;
+        Datenstruktur list = new Datenstruktur();
+        Collection collection = new LinkedList();
+        list.addAll(collection);
+        return true;
     }
 
     @Override
@@ -207,7 +216,7 @@ public class Datenstruktur <T> implements java.util.List<T>
     }
 
     @Override
-    public Object set(int index, Object element) {
+    public Object set(int index, Object T) {
         return null;
     }
 
@@ -305,6 +314,7 @@ public class Datenstruktur <T> implements java.util.List<T>
 
     public static void main(String[] args) {
         List<Object> node = new LinkedList<>();
+        System.out.println("Doppelt verkettete Liste - Ausgabe:");
         node.add(100);
         node.add(1.25);
         node.add('A');
@@ -318,6 +328,12 @@ public class Datenstruktur <T> implements java.util.List<T>
         System.out.println("Anwendung von Remove an Index 0:");
         System.out.println("Inhalt:              " +node);
         System.out.println("Größe:               " +node.size());
+        Collection collection = new LinkedList();
+        collection.add("Eins");
+        collection.add("Zwei");
+        collection.add("Drei");
+        node.addAll(collection);
+        System.out.println("LinkedList: " +node);
         System.out.println("Clear auf alle Inhalte:");
         node.clear();   // Funktioniert hier, jedoch nicht im JUnit. Warum?
         System.out.println("Inhalt:              " +node); 
