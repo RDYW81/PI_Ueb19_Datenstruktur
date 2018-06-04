@@ -323,17 +323,18 @@ public class Datenstruktur <T> implements java.util.List<T>
         node.isEmpty();
         System.out.println("Inhalt:              " +node);
         System.out.println("Größe:               " +node.size());
-        System.out.println("Leer? false/true:    " +node.isEmpty());
+        System.out.println("Leer? false/true:    " +node.isEmpty() + "\n");
         node.remove(0);
         System.out.println("Anwendung von Remove an Index 0:");
         System.out.println("Inhalt:              " +node);
-        System.out.println("Größe:               " +node.size());
+        System.out.println("Größe:               " +node.size() + "\n");
+        System.out.println("Hinzufügen einer Collection:");
         Collection collection = new LinkedList();
         collection.add("Eins");
         collection.add("Zwei");
         collection.add("Drei");
         node.addAll(collection);
-        System.out.println("LinkedList: " +node);
+        System.out.println("LinkedList:          " +node + "\n");
         System.out.println("Clear auf alle Inhalte:");
         node.clear();   // Funktioniert hier, jedoch nicht im JUnit. Warum?
         System.out.println("Inhalt:              " +node); 
