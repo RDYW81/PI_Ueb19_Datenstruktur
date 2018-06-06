@@ -118,7 +118,14 @@ public class Datenstruktur <T> implements java.util.List<T>
 
     @Override
     public Object[] toArray(Object[] T) {
-        return null;
+        Object ObjList[] = new Object[T.length];
+
+        for (int i= 0 ; i < T.length; i++) {
+
+            ObjList[i] = T[i];
+
+            }
+        return ObjList;
     }
 
     /**
@@ -212,7 +219,19 @@ public class Datenstruktur <T> implements java.util.List<T>
 
     @Override
     public T get(int index) {
-        return null;   
+        if (head != null) {
+            Datenstruktur cur = head;
+            while(cur != null){
+                int z = 0;
+                if (z == index){
+                    return    null;//(cur.getValue());
+                } else {
+                    cur.getNext();
+                    z++;
+                }
+            }
+        }
+        return null;
     }
 
     @Override
@@ -237,6 +256,19 @@ public class Datenstruktur <T> implements java.util.List<T>
 
     @Override
     public T remove(int index) {
+        if (head != null) {
+            int i = 0;
+            Datenstruktur cur = head;
+                while(cur != null){
+                 if (i == index){
+                     remove(cur.getValue());
+                     break;
+                 } else {
+                     cur.getNext();
+                     i++;
+                 }
+                }
+        }
         return null;
     }
 
@@ -246,9 +278,10 @@ public class Datenstruktur <T> implements java.util.List<T>
         Datenstruktur cur = head;
 
         while (cur!= null) {
-            if (cur.getValue().equals(T)) {
-                // if (cur.equals(T)) {
-                return index;
+            //if (T.equals(cur)) {
+            if (T.equals(cur.value)) {
+           // if (T.equals(cur.next)) {
+                    return index;
             }
             index++;
             cur = cur.next;
